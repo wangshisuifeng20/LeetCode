@@ -1,0 +1,42 @@
+给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。
+ 编写一个方法，将 B 合并入 A 并排序。
+
+
+初始化?A 和 B 的元素数量分别为?m 和 n。
+
+
+
+示例:
+
+输入:
+A = [1,2,3,0,0,0], m = 3
+  B = [2,5,6],      n = 3
+
+
+输出:?[1,2,2,3,5,6]
+
+说明:
+
+A.length == n + m
+
+
+
+#include<algorithm>
+#include<iostream>
+using namespace std;
+class Solution {
+public:
+    void merge(vector<int>& A, int m, vector<int>& B, int n) {
+        int j=0;
+        for(int i=m;i<m+n;i++)
+        {
+            A[i]=B[j++];
+        }
+        std::sort(A.begin(),A.end());
+    }
+};
+
+解法：将B数组的元素赋给A数组末端空间，再对A数组进行升序排序
+
+执行用时 :4 ms, 在所有 C++ 提交中击败了80.74%的用户
+内存消耗 :11.5 MB, 在所有 C++ 提交中击败了100.00%的用户
